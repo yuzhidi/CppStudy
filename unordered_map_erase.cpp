@@ -39,7 +39,7 @@ int main()
                                     {4, "four"}, {5, "five"}, {6, "six"}};
 
     LeoStruct leoStruct = LeoStruct(7, "seven");
-    std::unordered_map<int, LeoStruct> cLeo = {{7, leoStruct}};
+    std::unordered_map<int, LeoStruct&> cLeo = {{7, leoStruct}};
 
 
     // erase all odd numbers from c
@@ -67,4 +67,8 @@ int main()
         std::cout << "init2:" << p.second.s << std::endl;
     }
 
+    leoStruct.s= "not seven";
+    for(auto& p : cLeo) {
+        std::cout << "check not seven?:" << p.second.s << std::endl;
+    }
 }
